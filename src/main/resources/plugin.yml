@@ -1,0 +1,29 @@
+main: xyz.archiebaldry.cheekyutil.CheekyUtil
+name: CheekyUtil
+version: "${project.version}"
+
+api-version: 1.19
+author: archiebaldry
+
+commands:
+  friend:
+    aliases: f
+    usage: /friend [player]
+  unfriend:
+    aliases: uf
+    usage: /unfriend <player>
+  claim:
+    aliases: c
+    usage: /claim
+  unclaim:
+    aliases: uc
+    usage: /unclaim
+  trust:
+    aliases: t
+    usage: /trust <player>
+  untrust:
+    aliases: ut
+    usage: /untrust <player>
+  death:
+    aliases: d
+    usage: /death

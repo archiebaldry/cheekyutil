@@ -95,6 +95,10 @@ public class CheekyUtilListener implements Listener {
         // Store experience in corpse data
         corpseData.set(new NamespacedKey(PLUGIN, "level"), PersistentDataType.INTEGER, level);
         corpseData.set(new NamespacedKey(PLUGIN, "level_progress"), PersistentDataType.FLOAT, levelProgress);
+
+        // Disable item and experience drops
+        event.getDrops().clear();
+        event.setShouldDropExperience(false);
     }
 
     @EventHandler

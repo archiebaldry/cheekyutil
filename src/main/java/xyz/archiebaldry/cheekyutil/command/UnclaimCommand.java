@@ -62,6 +62,8 @@ public class UnclaimCommand implements CommandExecutor {
             // The player owns this chunk
             chunkData.remove(ownerKey); // Remove owner
 
+            chunkData.remove(new NamespacedKey(PLUGIN, "trusted")); // Remove any trusted players
+
             if (chunks > 1) { // Player is unclaiming 2nd or onwards chunk
                 // Give 8 emeralds
                 player.getInventory().addItem(new ItemStack(Material.EMERALD, 8));

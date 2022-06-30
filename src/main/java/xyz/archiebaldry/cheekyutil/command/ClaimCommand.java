@@ -96,7 +96,7 @@ public class ClaimCommand implements CommandExecutor {
 
                 chunkData.set(ownerKey, PersistentDataType.STRING, playerUUID); // Set owner to player
             } else {
-                player.sendMessage(Component.text("You need 5 emeralds to claim this chunk.").style(Style.style(NamedTextColor.RED)));
+                player.sendMessage(Component.text("You need 16 emeralds to claim this chunk.").style(Style.style(NamedTextColor.RED)));
             }
         } else if (ownerUUID.equals(playerUUID)) {
             // The player already owns this chunk

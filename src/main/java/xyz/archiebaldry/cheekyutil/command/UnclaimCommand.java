@@ -63,13 +63,13 @@ public class UnclaimCommand implements CommandExecutor {
             chunkData.remove(ownerKey); // Remove owner
 
             if (chunks > 1) { // Player is unclaiming 2nd or onwards chunk
-                // Give 4 emeralds
-                player.getInventory().addItem(new ItemStack(Material.EMERALD, 4));
+                // Give 8 emeralds
+                player.getInventory().addItem(new ItemStack(Material.EMERALD, 8));
             }
 
             playerData.set(chunksKey, PersistentDataType.INTEGER, chunks - 1);
 
-            player.sendMessage(Component.text("You unclaimed this chunk. You will receive 4 emeralds provided this was not your only chunk.").style(Style.style(NamedTextColor.GREEN)));
+            player.sendMessage(Component.text("You unclaimed this chunk. You will receive 8 emeralds provided this was not your only chunk.").style(Style.style(NamedTextColor.GREEN)));
         } else {
             // Somebody else owns this chunk
             String ownerName = Bukkit.getOfflinePlayer(UUID.fromString(ownerUUID)).getName(); // Get owner name

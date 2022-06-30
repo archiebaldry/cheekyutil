@@ -63,12 +63,12 @@ public class ClaimCommand implements CommandExecutor {
                 playerData.set(chunksKey, PersistentDataType.INTEGER, 1);
 
                 chunkData.set(ownerKey, PersistentDataType.STRING, playerUUID); // Set owner to player
-            } else if (player.getInventory().containsAtLeast(new ItemStack(Material.EMERALD), 5)) { // 2nd chunk and onwards costs 5 emeralds
-                player.sendMessage(Component.text("You claimed this chunk for 5 emeralds.").style(Style.style(NamedTextColor.GREEN)));
+            } else if (player.getInventory().containsAtLeast(new ItemStack(Material.EMERALD), 16)) { // 2nd chunk and onwards costs 16 emeralds
+                player.sendMessage(Component.text("You claimed this chunk for 16 emeralds.").style(Style.style(NamedTextColor.GREEN)));
 
                 ItemStack[] contents = player.getInventory().getStorageContents();
 
-                int leftToRemove = 5;
+                int leftToRemove = 16;
 
                 for (int i = 0; i < contents.length; i++) {
                     ItemStack stack = contents[i];

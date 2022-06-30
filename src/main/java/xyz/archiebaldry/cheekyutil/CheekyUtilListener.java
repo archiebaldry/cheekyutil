@@ -3,10 +3,7 @@ package xyz.archiebaldry.cheekyutil;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.Style;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -28,10 +25,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class CheekyUtilListener implements Listener {
 
@@ -55,9 +49,10 @@ public class CheekyUtilListener implements Listener {
         // Set corpse's name to player's name
         corpse.customName(Component.text(player.getName()).style(Style.style(NamedTextColor.GRAY)));
 
-        // Disable corpse's AI, enable invulnerability and disable burning
+        // Disable corpse's AI, enable invulnerability, disable despawning and disable burning
         corpse.setAI(false);
         corpse.setInvulnerable(true);
+        corpse.setRemoveWhenFarAway(false);
         corpse.setShouldBurnInDay(false);
 
         // Get player's inventory and experience
@@ -99,6 +94,9 @@ public class CheekyUtilListener implements Listener {
         // Disable item and experience drops
         event.getDrops().clear();
         event.setShouldDropExperience(false);
+
+        // Log to console
+        PLUGIN.getLogger().info(String.format("Spawned corpse for %s at %d %d %d with %d levels (%f progress) and the following items: %s", player.getName(), location.getBlockX(), location.getBlockY(), location.getBlockZ(), level, levelProgress, Arrays.toString(inventory.getContents())));
     }
 
     @EventHandler
@@ -201,6 +199,11 @@ public class CheekyUtilListener implements Listener {
 
         // Remove corpse from world
         corpse.remove();
+
+        // Log to console
+        Location location = corpse.getLocation();
+
+        PLUGIN.getLogger().info(String.format("%s collected corpse of %s at %d %d %d", player.getName(), ChatColor.stripColor(corpse.getName()), location.getBlockX(),location.getBlockY(), location.getBlockZ()));
     }
 
     @EventHandler

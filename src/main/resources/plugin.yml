@@ -12,6 +12,9 @@ commands:
   unfriend:
     aliases: uf
     usage: /unfriend <player>
+  chunkinfo:
+    aliases: ci
+    usage: /chunkinfo
   claim:
     aliases: c
     usage: /claim

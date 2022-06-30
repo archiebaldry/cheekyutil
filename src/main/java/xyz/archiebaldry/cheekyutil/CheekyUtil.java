@@ -22,6 +22,7 @@ public final class CheekyUtil extends JavaPlugin {
         // Get commands
         PluginCommand friendCommand = getCommand("friend");
         PluginCommand unfriendCommand = getCommand("unfriend");
+        PluginCommand chunkInfoCommand = getCommand("chunkinfo");
         PluginCommand claimCommand = getCommand("claim");
         PluginCommand unclaimCommand = getCommand("unclaim");
         PluginCommand trustCommand = getCommand("trust");
@@ -31,6 +32,7 @@ public final class CheekyUtil extends JavaPlugin {
         // Set command executors
         if (friendCommand != null) friendCommand.setExecutor(new FriendCommand());
         if (unfriendCommand != null) unfriendCommand.setExecutor(new UnfriendCommand());
+        if (chunkInfoCommand != null) chunkInfoCommand.setExecutor(new ChunkInfoCommand());
         if (claimCommand != null) claimCommand.setExecutor(new ClaimCommand());
         if (unclaimCommand != null) unclaimCommand.setExecutor(new UnclaimCommand());
         if (trustCommand != null) trustCommand.setExecutor(new TrustCommand());
